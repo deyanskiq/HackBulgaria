@@ -1,0 +1,13 @@
+<h1>Movies and projections:</h1>
+{% for movie in movies %}
+<h2><a href="show_movie?movie_id={{movie.id}}">{{ movie.name }}</a></h2>
+<p>Rating of the movie: {{movie.rating}}</p>
+<strong>Projections:</strong>
+{% for projection in projections%}
+{% if projection.movie == movie %}
+<ul>
+    <li>{{projection.when}} - {{projection.projection_type}}</li>
+</ul>
+{% endif %}
+{% endfor %}
+{% endfor %}
